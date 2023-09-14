@@ -1,6 +1,8 @@
 package xtypes
 
 import (
+	"encoding/json"
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -12,4 +14,6 @@ func TestNewEnum(t *testing.T) {
 	color.NewMember("YELLOW", 2, "黄色")
 	assert.Equal(t, 1, color.Number("RED"))
 	assert.Equal(t, "黄色", color.Desc("YELLOW"))
+	byteColor, _ := json.Marshal(color)
+	fmt.Println(string(byteColor))
 }
